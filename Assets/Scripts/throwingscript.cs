@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class throwingscript : MonoBehaviour
 {
+    
+
+    //☆
+    private float InstantiationTimer = 0.1f;
+    // ターゲットオブジェクトの Transformコンポーネントを格納する変数
+    public Transform target;//☆
+    // オブジェクトの移動速度を格納する変数
+    public float moveSpeed;//☆
+    // オブジェクトが停止するターゲットオブジェクトとの距離を格納する変数
+    public float stopDistance;//☆
+    // オブジェクトがターゲットに向かって移動を開始する距離を格納する変数
+    public float moveDistance;//☆  
+
     //<summary>
     //testtest
     //射出するオブジェクト
@@ -37,22 +50,57 @@ public class throwingscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+
+     // ゲーム実行中に毎フレーム実行する処理
+
+        //☆ 変数 targetPos を作成してターゲットオブジェクトの座標を格納
+        Vector3 targetPos = target.position;//☆
+        // 自分自身のY座標を変数 target のY座標に格納
+        //（ターゲットオブジェクトのX、Z座標のみ参照）
+        targetPos.y = transform.position.y;//☆
+        // オブジェクトを変数 targetPos の座標方向に向かせる
+        transform.LookAt(targetPos);//☆
+
+        // 変数 distance を作成してオブジェクトの位置とターゲットオブジェクトの距離を格納
+        float distance = Vector3.Distance(transform.position, target.position);//☆
+        // オブジェクトとターゲットオブジェクトの距離判定
+        // 変数 distance（ターゲットオブジェクトとオブジェクトの距離）が変数 moveDistance の値より小さければ
+        // さらに変数 distance が変数 stopDistance の値よりも大きい場合
+      
+
+
+        if (this.transform.position.z-15 < target.transform.position.z)
         {
-            //マウス左クリックでボールを射出する
+            Destroy(gameObject);
+        }
+
+        else if (distance < moveDistance && distance > stopDistance)//☆
+        {
             ThrowingBall();
         }
+    
+        //        if(Input.GetMouseButtonDown(0))
+        //      {
+        //        //マウス左クリックでボールを射出する
+         //      ThrowingBall();
+        //}
     }
     //<summary>
     //ボールを射出する
     //</summary>
     private void ThrowingBall()
     {
-        if (ThrowingObject !=null && TargetObject !=null)
+        InstantiationTimer -= Time.deltaTime;
+        if (ThrowingObject !=null && TargetObject !=null && InstantiationTimer <0)
         {
             //Ballオブジェクトの生成
             GameObject ball = Instantiate(ThrowingObject, this.transform.position, Quaternion.identity);
+            InstantiationTimer =0.5f;
             
+            //<old/>
+            //GameObject ball = Instantiate(ThrowingObject, this.transform.position, Quaternion.identity);
+            //</old>
+
             //標的の座標
             Vector3 targetPosition = TargetObject.transform.position;
 
@@ -66,11 +114,17 @@ public class throwingscript : MonoBehaviour
             Rigidbody rid = ball.GetComponent<Rigidbody>();
             rid.AddForce(velocity * rid.mass, ForceMode.Impulse);
         }
-        else
-        {
-            throw new System.Exception("射出するオブジェクトまたは標的のオブジェクトが未設定です。");
-        }
-    }
+        //else
+        //{
+          //  throw new System.Exception("射出するオブジェクトまたは標的のオブジェクトが未設定です。");
+        //}
+        
+            }
+
+
+    
+
+
 
     //<summary>
     //標的に命中する射出速度の清算
