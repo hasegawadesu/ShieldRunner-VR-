@@ -7,7 +7,7 @@ public class throwingscript : MonoBehaviour
     
 
     //☆
-    private float InstantiationTimer = 0.1f;
+    private float InstantiationTimer = 0f;
     // ターゲットオブジェクトの Transformコンポーネントを格納する変数
     public Transform target;//☆
     // オブジェクトの移動速度を格納する変数
@@ -35,14 +35,14 @@ public class throwingscript : MonoBehaviour
     //</summary>
     [SerializeField, Range(0F,90F), Tooltip("ThrowingAngle")]
     private float ThrowingAngle=0;
-
+ 
     // Start is called before the first frame update
     private void Start()
     {
      Collider collider = GetComponent<Collider>();
      if(collider != null)
      {
-         //干渉しないようにisTriggerをつける
+         //干渉しないようにisTriggerをつける 
          collider.isTrigger = true;
      }   
     }
@@ -95,7 +95,7 @@ public class throwingscript : MonoBehaviour
         {
             //Ballオブジェクトの生成
             GameObject ball = Instantiate(ThrowingObject, this.transform.position, Quaternion.identity);
-            InstantiationTimer =0.5f;
+            InstantiationTimer =2f;
             
             //<old/>
             //GameObject ball = Instantiate(ThrowingObject, this.transform.position, Quaternion.identity);
