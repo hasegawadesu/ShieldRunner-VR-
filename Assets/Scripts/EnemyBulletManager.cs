@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class EnemyBulletManager : MonoBehaviour
 {
+
+
     public float powerEnemy = 10;//攻撃力AAAAAAAAAAAAdsadsadasda
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
