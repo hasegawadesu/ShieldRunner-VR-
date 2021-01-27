@@ -97,12 +97,13 @@ public class throwingscript : MonoBehaviour
             GameObject ball = Instantiate(ThrowingObject, this.transform.position, Quaternion.identity);
             InstantiationTimer =2f;
             
-            //<old/>
-            //GameObject ball = Instantiate(ThrowingObject, this.transform.position, Quaternion.identity);
-            //</old>
-
             //標的の座標
-            Vector3 targetPosition = TargetObject.transform.position;
+
+            float x = Random.Range(0.0f, 2.0f);
+		    float y = Random.Range(0.0f, 2.0f);
+		    float z = Random.Range(0.0f, 2.0f);
+           Vector3 targetPosition = TargetObject.transform.position;
+           TargetObject.transform.position = new Vector3(x, y, z);
 
             //射出角度
             float angle = ThrowingAngle;
@@ -114,17 +115,9 @@ public class throwingscript : MonoBehaviour
             Rigidbody rid = ball.GetComponent<Rigidbody>();
             rid.AddForce(velocity * rid.mass, ForceMode.Impulse);
         }
-        //else
-        //{
-          //  throw new System.Exception("射出するオブジェクトまたは標的のオブジェクトが未設定です。");
-        //}
+
         
             }
-
-
-    
-
-
 
     //<summary>
     //標的に命中する射出速度の清算

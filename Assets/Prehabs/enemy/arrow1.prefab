@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3844869821913824651}
   - component: {fileID: 3844869821913824644}
   - component: {fileID: 3844869821913824645}
-  - component: {fileID: 3844869821913824648}
   m_Layer: 0
   m_Name: arrow1
   m_TagString: '"EnemyBullet"'
@@ -107,20 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbc872530f57af489ce13064b61d52f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  moveSpeed: 0
+  stopDistance: 0
+  moveDistance: 0
   ThrowingObject: {fileID: 5284403042908263590, guid: 7967c50185b27364dbcfe8cb6876775a,
     type: 3}
   TargetObject: {fileID: 0}
   ThrowingAngle: 9.6
---- !u!114 &3844869821913824648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3844869821913824646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b48fd446f7afb2349a05c809f065ab6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerEnemy: 10
