@@ -70,21 +70,21 @@ public class shieldcontroller : MonoBehaviour
         slider.value = currentHp; // Sliderに現在HPを適用
         //左移動
         if(Input.GetKey(KeyCode.A)){
-            this.transform.Translate(-0.05f,0f,0f);
+            this.transform.Translate(-0.3f,0f,0f);
         }
 
         //上移動
         if(Input.GetKey(KeyCode.W)){
-            this.transform.Translate(0f,0.05f,0f);
+            this.transform.Translate(0f,0.3f,0f);
         }
         //右移動
         if(Input.GetKey(KeyCode.D)){
-            this.transform.Translate(0.05f,0f,0f);
+            this.transform.Translate(0.3f,0f,0f);
         }
 
         //下に移動
         if(Input.GetKey(KeyCode.S)){
-            this.transform.Translate(0f,-0.05f,0f);
+            this.transform.Translate(0f,-0.3f,0f);
         }
     }
 }
