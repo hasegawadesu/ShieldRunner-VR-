@@ -65,7 +65,7 @@ public class shieldcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-                this.transform.position += new Vector3(0f, 0f, 0.02f);
+             //   this.transform.position += new Vector3(0f, 0f, 0.02f);
 
         slider.value = currentHp; // Sliderに現在HPを適用
         //左移動

@@ -111,10 +111,13 @@ PlayerSettings:
   switchNVNShaderPoolsGranularity: 33554432
   switchNVNDefaultPoolsGranularity: 16777216
   switchNVNOtherPoolsGranularity: 16777216
+  switchNVNMaxPublicTextureIDCount: 0
+  switchNVNMaxPublicSamplerIDCount: 0
   stadiaPresentMode: 0
   stadiaTargetFramerate: 0
   vulkanNumSwapchainBuffers: 3
   vulkanEnableSetSRGBWrite: 0
+  vulkanEnableLateAcquireNextImage: 0
   m_SupportedAspectRatios:
     4:3: 1
     5:4: 1
@@ -234,6 +237,7 @@ PlayerSettings:
   metalEditorSupport: 1
   metalAPIValidation: 1
   iOSRenderExtraFrameOnPause: 1
+  iosCopyPluginsCodeInsteadOfSymlink: 0
   appleDeveloperTeamID: 
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
@@ -547,6 +551,7 @@ PlayerSettings:
   ps4ShareFilePath: 
   ps4ShareOverlayImagePath: 
   ps4PrivacyGuardImagePath: 
+  ps4ExtraSceSysFile: 
   ps4NPtitleDatPath: 
   ps4RemotePlayKeyAssignment: -1
   ps4RemotePlayKeyMappingDir: 
@@ -589,6 +594,8 @@ PlayerSettings:
   ps4disableAutoHideSplash: 0
   ps4videoRecordingFeaturesUsed: 0
   ps4contentSearchFeaturesUsed: 0
+  ps4CompatibilityPS5: 0
+  ps4GPU800MHz: 1
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
   ps4attribVROutputEnabled: 0
@@ -612,25 +619,28 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: 
+    1: UNITY_POST_PROCESSING_STACK_V2
     2: 
-    4: 
-    7: 
-    13: 
-    14: MOBILE_INPUT;EASY_MOBILE;EASY_MOBILE_PRO
+    4: UNITY_POST_PROCESSING_STACK_V2
+    7: UNITY_POST_PROCESSING_STACK_V2
+    13: UNITY_POST_PROCESSING_STACK_V2
+    14: MOBILE_INPUT;EASY_MOBILE;EASY_MOBILE_PRO;UNITY_POST_PROCESSING_STACK_V2
     15: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     16: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     17: MOBILE_INPUT;EASY_MOBILE;EASY_MOBILE_PRO
     18: EASY_MOBILE;EASY_MOBILE_PRO
-    19: EASY_MOBILE;EASY_MOBILE_PRO
+    19: EASY_MOBILE;EASY_MOBILE_PRO;UNITY_POST_PROCESSING_STACK_V2
     20: MOBILE_INPUT;EASY_MOBILE;EASY_MOBILE_PRO
-    21: EASY_MOBILE;EASY_MOBILE_PRO
+    21: EASY_MOBILE;EASY_MOBILE_PRO;UNITY_POST_PROCESSING_STACK_V2
     22: EASY_MOBILE;EASY_MOBILE_PRO
     23: EASY_MOBILE;EASY_MOBILE_PRO
     24: EASY_MOBILE;EASY_MOBILE_PRO
-    25: EASY_MOBILE;EASY_MOBILE_PRO
+    25: EASY_MOBILE;EASY_MOBILE_PRO;UNITY_POST_PROCESSING_STACK_V2
     26: 
-    27: EASY_MOBILE;EASY_MOBILE_PRO
+    27: EASY_MOBILE;EASY_MOBILE_PRO;UNITY_POST_PROCESSING_STACK_V2
+    28: UNITY_POST_PROCESSING_STACK_V2
+    29: UNITY_POST_PROCESSING_STACK_V2
+    30: UNITY_POST_PROCESSING_STACK_V2
   platformArchitecture:
     iPhone: 2
     tvOS: 1
@@ -650,6 +660,7 @@ PlayerSettings:
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 0
+  assemblyVersionValidation: 1
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
@@ -699,6 +710,7 @@ PlayerSettings:
   XboxOneCapability: []
   XboxOneGameRating: {}
   XboxOneIsContentPackage: 0
+  XboxOneEnhancedXboxCompatibilityMode: 0
   XboxOneEnableGPUVariability: 0
   XboxOneSockets: {}
   XboxOneSplashScreen: {fileID: 0}

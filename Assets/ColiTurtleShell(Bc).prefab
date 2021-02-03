@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 5112998873586988532}
   - component: {fileID: -7761846208441006580}
   - component: {fileID: 1062236546151674360}
+  - component: {fileID: 98324683265338398}
   m_Layer: 0
   m_Name: ColiTurtleShell(Bc)
   m_TagString: EnemyBullet
@@ -436,10 +437,10 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 1
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 3
 --- !u!114 &1062236546151674360
@@ -455,6 +456,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerEnemy: 10
+--- !u!114 &98324683265338398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161372514389455248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873ea759191991b479166724ec245575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleObject: {fileID: 8515310122775128394, guid: 77c26eb1bd874c647bea4efc658b86e9,
+    type: 3}
 --- !u!1 &5161517842894618808
 GameObject:
   m_ObjectHideFlags: 0

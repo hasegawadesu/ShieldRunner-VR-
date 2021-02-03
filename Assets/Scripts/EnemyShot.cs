@@ -1,71 +1,64 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class throwingscript : MonoBehaviour
+public class EnemyShot : MonoBehaviour
 {
     
 
-    //☆
+    // 初回射撃時の待ち時間
     private float InstantiationTimer = 0f;
     // ターゲットオブジェクトの Transformコンポーネントを格納する変数
-    public Transform target;//☆
+    public Transform target;//
     // オブジェクトの移動速度を格納する変数
-    public float moveSpeed;//☆
+    public float moveSpeed;//
     // オブジェクトが停止するターゲットオブジェクトとの距離を格納する変数
-    public float stopDistance;//☆
+    public float stopDistance;//
     // オブジェクトがターゲットに向かって移動を開始する距離を格納する変数
-    public float moveDistance;//☆  
+    public float moveDistance;//
 
-    //<summary>
-    //testtest
-    //射出するオブジェクト
-    //</summary>
+    //射出するオブジェクトをinspectorで設定と初期値
     [SerializeField, Tooltip("ThrowingObject")]
     private GameObject ThrowingObject=null;
 
-    //<summary>
-    //標的のオブジェクト
-    //</summary>
+    //標的のオブジェクトをinspectorで設定と初期値
     [SerializeField, Tooltip("TargetObject")]
     private GameObject TargetObject=null;
 
-    //<summary>
-    //射出角度
-    //</summary>
+    //射出角度をinspectorで設定と初期値
     [SerializeField, Range(0F,90F), Tooltip("ThrowingAngle")]
     private float ThrowingAngle=0;
  
-    // Start is called before the first frame update
+    //スタート時に起動するscript
     private void Start()
     {
+    /*
+    //射出オブジェクトと鑑賞しないように
      Collider collider = GetComponent<Collider>();
      if(collider != null)
      {
          //干渉しないようにisTriggerをつける 
          collider.isTrigger = true;
-     }   
+     }  
+     */ 
     }
 
-    // Update is called once per frame
+     // ゲーム実行中に毎フレーム実行する処理
     void Update()
     {
+     //変数 targetPos を作成してターゲットオブジェクトの座標を格納
+     Vector3 targetPos = target.position;//☆
+     // 自分自身のY座標を変数 target のY座標に格納
+     //（ターゲットオブジェクトのX、Z座標のみ参照）
+     targetPos.y = transform.position.y;//☆
+     // オブジェクトを変数 targetPos の座標方向に向かせる
+     transform.LookAt(targetPos);//☆
 
-     // ゲーム実行中に毎フレーム実行する処理
-
-        //☆ 変数 targetPos を作成してターゲットオブジェクトの座標を格納
-        Vector3 targetPos = target.position;//☆
-        // 自分自身のY座標を変数 target のY座標に格納
-        //（ターゲットオブジェクトのX、Z座標のみ参照）
-        targetPos.y = transform.position.y;//☆
-        // オブジェクトを変数 targetPos の座標方向に向かせる
-        transform.LookAt(targetPos);//☆
-
-        // 変数 distance を作成してオブジェクトの位置とターゲットオブジェクトの距離を格納
-        float distance = Vector3.Distance(transform.position, target.position);//☆
-        // オブジェクトとターゲットオブジェクトの距離判定
-        // 変数 distance（ターゲットオブジェクトとオブジェクトの距離）が変数 moveDistance の値より小さければ
-        // さらに変数 distance が変数 stopDistance の値よりも大きい場合
+     // 変数 distance を作成してオブジェクトの位置とターゲットオブジェクトの距離を格納
+     float distance = Vector3.Distance(transform.position, target.position);//☆
+     // オブジェクトとターゲットオブジェクトの距離判定
+     // 変数 distance（ターゲットオブジェクトとオブジェクトの距離）が変数 moveDistance の値より小さければ
+     // さらに変数 distance が変数 stopDistance の値よりも大きい場合
       
 
 
@@ -95,15 +88,13 @@ public class throwingscript : MonoBehaviour
         {
             //Ballオブジェクトの生成
             GameObject ball = Instantiate(ThrowingObject, this.transform.position, Quaternion.identity);
-            InstantiationTimer =2f;
+            InstantiationTimer =1f;
             
             //標的の座標
 
-            float x = Random.Range(0.0f, 2.0f);
-		    float y = Random.Range(0.0f, 2.0f);
-		    float z = Random.Range(0.0f, 2.0f);
+            //float x = Random.Range(-2.0f, 2.0f);
+            //float y = Random.Range(-2.0f, 2.0f);
            Vector3 targetPosition = TargetObject.transform.position;
-           TargetObject.transform.position = new Vector3(x, y, z);
 
             //射出角度
             float angle = ThrowingAngle;
